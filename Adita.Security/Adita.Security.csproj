@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Title>Security library that targeting .NET 6</Title>
+    <Version>1.0.0.0</Version>
+    <Authors>Setya Adi Kurnia</Authors>
+    <Company>Adita</Company>
+    <Copyright>©2022, Adita</Copyright>
+  </PropertyGroup>
+
+</Project>
