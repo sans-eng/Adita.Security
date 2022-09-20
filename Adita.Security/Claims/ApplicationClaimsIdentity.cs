@@ -34,6 +34,10 @@ namespace Adita.Security.Claims
         /// <summary>
         /// Initialize a new instance of <see cref="ApplicationIdentity"/>.
         /// </summary>
+        public ApplicationIdentity(){}
+        /// <summary>
+        /// Initialize a new instance of <see cref="ApplicationIdentity"/>.
+        /// </summary>
         /// <param name="authenticationType">The type of authentication used.</param>
         public ApplicationIdentity(string authenticationType)
         {
@@ -81,7 +85,12 @@ namespace Adita.Security.Claims
         /// <inheritdoc/>
         public string? AuthenticationType { get; }
         /// <inheritdoc/>
-        public bool IsAuthenticated { get { return string.IsNullOrEmpty(AuthenticationType); } }
+        public bool IsAuthenticated { get { return !string.IsNullOrWhiteSpace(AuthenticationType); } }
+        /// <summary>
+        /// Gets a value that indicates whether the user account is identified as an anonymous account by the system.
+        /// </summary>
+        /// <value><see langword="true"/> if the user account is an anonymous account; otherwise, <see langword="false"/>.</value>
+        public bool IsAnonymous { get { return string.IsNullOrWhiteSpace(Name); } }
         /// <inheritdoc/>
         public string? Name { get; }
         /// <summary>
