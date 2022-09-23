@@ -92,7 +92,10 @@ namespace Adita.Security.Claims
         /// <value><see langword="true"/> if the user account is an anonymous account; otherwise, <see langword="false"/>.</value>
         public bool IsAnonymous { get { return string.IsNullOrWhiteSpace(Name); } }
         /// <inheritdoc/>
-        public string? Name { get; }
+        public string? Name
+        {
+            get { return Claims.FirstOrDefault(o => o.Type == NameClaimType)?.Value; }
+        }
         /// <summary>
         /// Gets the claims associated with this <see cref="ApplicationIdentity"/>.
         /// </summary>
