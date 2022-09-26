@@ -19,8 +19,8 @@
     <PackageTags>Security; NET6; claims; principal; authorization;</PackageTags>
     <PackageReleaseNotes>What's new:
 1. AuthorizationManager
-2. 
-2. Added AuthorizeAttribute</PackageReleaseNotes>
+2. IAuthorizationManager
+2. AuthorizeAttribute</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
