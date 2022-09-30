@@ -36,6 +36,10 @@ namespace Adita.Security.Authorization
     {
         #region Constructors
         /// <summary>
+        /// Initialize a new instance of <see cref="AuthorizeAttribute"/>.
+        /// </summary>
+        public AuthorizeAttribute() { }
+        /// <summary>
         /// Initialize a new instance of <see cref="AuthorizeAttribute"/> using specified <paramref name="role"/>.
         /// </summary>
         /// <param name="role">A role name to include.</param>
@@ -49,7 +53,7 @@ namespace Adita.Security.Authorization
         /// <summary>
         /// Gets a comma delimited list of roles that are allowed to access the resource.
         /// </summary>
-        public string Roles { get;}
+        public string Roles { get; } = String.Empty;
         #endregion Public properties
     }
 }
