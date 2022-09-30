@@ -18,6 +18,8 @@ namespace Adita.Security.Test.Authorization
         public int Resource1 { get; }
         [Authorize("user")]
         public int Resource2 { get; }
+        [Authorize]
+        public int Resource3 { get; }
 
         [ClassInitialize]
         public static void Initialize(TestContext context)
@@ -38,6 +40,14 @@ namespace Adita.Security.Test.Authorization
         }
 
         [TestMethod]
+        [Authorize]
+        public void CanAcceptPermissionEmptyRoles()
+        {
+            AuthorizationManager authorizationManager = new();
+            Assert.IsTrue(authorizationManager.CheckPermission());
+        }
+
+        [TestMethod]
         [Authorize("user")]
         public void CanRefusePermission()
         {
@@ -50,6 +60,13 @@ namespace Adita.Security.Test.Authorization
         {
             AuthorizationManager authorizationManager = new();
             Assert.IsTrue(authorizationManager.HasPermission<AuthorizaztionManagerTest>(nameof(Resource1)));
+        }
+
+        [TestMethod]
+        public void CanAcceptResourcePermissionEmptyRoles()
+        {
+            AuthorizationManager authorizationManager = new();
+            Assert.IsTrue(authorizationManager.HasPermission<AuthorizaztionManagerTest>(nameof(Resource3)));
         }
 
         [TestMethod]
