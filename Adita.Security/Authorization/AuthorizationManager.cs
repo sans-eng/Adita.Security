@@ -44,6 +44,12 @@ namespace Adita.Security.Authorization
 
             if (attribute is AuthorizeAttribute authorizeAttribute)
             {
+
+                if (string.IsNullOrWhiteSpace(authorizeAttribute.Roles) && Thread.CurrentPrincipal?.Identity?.IsAuthenticated == true)
+                {
+                    return true;
+                }
+
                 foreach (var role in authorizeAttribute.Roles.Split(','))
                 {
                     bool? isAuthorized = Thread.CurrentPrincipal?.IsInRole(role);
@@ -74,6 +80,11 @@ namespace Adita.Security.Authorization
 
             if (attribute is AuthorizeAttribute authorizeAttribute)
             {
+                if (string.IsNullOrWhiteSpace(authorizeAttribute.Roles) && Thread.CurrentPrincipal?.Identity?.IsAuthenticated == true)
+                {
+                    return true;
+                }
+
                 foreach (var role in authorizeAttribute.Roles.Split(','))
                 {
                     bool? isAuthorized = Thread.CurrentPrincipal?.IsInRole(role);
