@@ -19,6 +19,7 @@
     <PackageTags>Security; NET6; claims; principal; authorization;</PackageTags>
     <PackageReleaseNotes>Add IdentityChanged event to ApplicationPrincipal
 </PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
