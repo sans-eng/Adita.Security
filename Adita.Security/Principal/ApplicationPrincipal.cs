@@ -60,6 +60,13 @@ namespace Adita.Security.Principal
         }
         #endregion Public properties
 
+        #region Events
+        /// <summary>
+        /// Occurs when identity changed.
+        /// </summary>
+        public event EventHandler<IIdentity>? IdentityChanged;
+        #endregion Events
+
         #region Public methods
         /// <summary>
         /// Set current <see cref="ApplicationPrincipal"/> using specified <paramref name="identity"/>.
@@ -68,6 +75,7 @@ namespace Adita.Security.Principal
         public void SetIdentity(ApplicationIdentity identity)
         {
             _identity = identity;
+            IdentityChanged?.Invoke(this, _identity);
         }
         /// <summary>
         /// Determines whether the <see cref="IIdentity"/> that associated with
